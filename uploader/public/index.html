@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop File Upload</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form
+      id="upload-form"
+      action="/uploadBig"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div id="drop-area">
+        <p>Drag and drop a file here or click to select a file.</p>
+        <input
+          type="file"
+          id="fileElem"
+          name="file"
+          multiple
+          accept="*/*"
+          onchange="handleFiles(this.files)"
+        />
+      </div>
+      <button type="submit">Upload File</button>
+    </form>
+
+    <script>
+      let dropArea = document.getElementById("drop-area");
+
+      ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+      });
+
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      ["dragenter", "dragover"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, highlight, false);
+      });
+
+      ["dragleave", "drop"].forEach((eventName) => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+      });
+
+      function highlight() {
+        dropArea.classList.add("highlight");
+      }
+
+      function unhighlight() {
+        dropArea.classList.remove("highlight");
+      }
+
+      dropArea.addEventListener("drop", handleDrop, false);
+
+      function handleDrop(e) {
+        let dt = e.dataTransfer;
+        let files = dt.files;
+
+        handleFiles(files);
+      }
+
+      function handleFiles(files) {
+        [...files].forEach(uploadFile);
+      }
+
+      function uploadFile(file) {
+        // Here, you would typically upload the file to a server
+        // For demonstration, we'll just log the file name to the console
+        console.log("Uploading", file.name);
+      }
+    </script>
+  </body>
+</html>

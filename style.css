@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+#hero {
+    background: linear-gradient(to bottom, #e6e6e6 0%, #ffffff 100%);
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#featured-posts, #latest-posts {
+    padding: 20px;
+}
+
+.posts-grid, .posts-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.post {
+    width: calc(33% - 20px);
+    margin: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+}
+
+#about, #newsletter {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+footer .social-links {
+    list-style: none;
+    padding: 0;
+}
+
+footer .social-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer p {
+    margin: 10px 0 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .posts-grid .post, .posts-list .post {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .posts-grid .post, .posts-list .post {
+        width: 100%;
+    }
+
+    .navbar ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+body {
+    font-family: 'Helvetica Bold', Arial, sans-serif; /* Bulkier font */
+    color: #333;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    display: flex; /* Flex display for even spacing */
+    justify-content: space-around; /* Evenly space flex items */
+    align-items: center; /* Center items vertically */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Apply flex to the list for even spacing */
+    width: 100%; /* Full width to spread out the items */
+    justify-content: space-around; /* Even spacing */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Other styles remain the same */
+
+/* Adjustments for 'About' section moved to the bottom */
+#about {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    order: 3; /* Flex order, but might not be necessary if HTML is reordered */
+}
